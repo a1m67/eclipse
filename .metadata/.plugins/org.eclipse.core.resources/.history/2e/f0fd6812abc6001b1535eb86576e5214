@@ -1,0 +1,23 @@
+package test1;
+
+import java.awt.GridLayout;
+
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class SearchDialog extends JDialog {
+
+	public SearchDialog(){
+		this.setLayout(new GridLayout(2,1));
+		JPanel jp1 = new JPanel();
+		JPanel jp2 = new JPanel();
+		JLabel jl1 =  new JLabel("Ñ§ºÅ");
+		JTextField jtf1 = new JTextField();
+		this.add(jl1);
+		this.add(jtf1);
+		String text = 
+	}
+	
+}

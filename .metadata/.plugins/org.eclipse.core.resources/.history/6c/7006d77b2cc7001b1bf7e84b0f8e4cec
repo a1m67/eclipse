@@ -1,0 +1,247 @@
+package test1;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.sql.*;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
+import java.util.ArrayList;
+import java.util.Vector;
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import test1.Test_Student;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+
+@SuppressWarnings("serial")
+public class jComboBox1 extends JFrame {
+	private JPanel contentPane;
+	public static Test_Student test;
+	/**
+	 * Launch the application.
+	 * @throws Exception 
+	 */
+	void init () throws Exception {
+		
+		test = new Test_Student();
+	}
+	public static void main(String[] args) throws Exception{
+					jComboBox1 frame = new jComboBox1();
+					frame.setVisible(true);
+	}
+
+	/**
+	 * Create the frame.
+	 * @throws Exception 
+	 */
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+public jComboBox1() throws Exception {
+		
+		setTitle("\u5B66\u751F\u7C4D\u8D2F\u4FE1\u606F\u8BB0\u5F55\u7C3F");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 539, 402);
+		init();
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("\u67E5\u8BE2");
+		menuBar.add(mnNewMenu);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("\u6839\u636E\u5B66\u53F7\u67E5\u8BE2");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				IdSearch idsearch = new IdSearch();
+				idsearch.btnNewButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {						
+						if (idsearch.textField.getText().trim().equals("")){//判定文本框输入是否为空 					
+//							EmptyText emptyText = new EmptyText();
+							JOptionPane.showMessageDialog(null, "您的输入为空");
+							return;
+						}
+						String text =  idsearch.textField.getText();
+						String s[] =  {"id", "name", "address"};
+						Vector rowData,columnNames;
+						columnNames = new Vector();
+						rowData =new Vector();
+						columnNames.add("id");columnNames.add("name");columnNames.add("address");
+						idsearch.table_3 = new JTable(rowData,columnNames) {
+							public boolean isCellEditable(int rowIndex, int ColIndex){
+							     return false;
+								}
+						};
+						idsearch.scrollPane = new JScrollPane(idsearch.table_3);
+						idsearch.scrollPane.setBounds(0, 85, 436, 166);
+						idsearch.table_3.setVisible(true);
+						idsearch.contentPane.add(idsearch.scrollPane);
+						String sIdSearch ="Select id,name,address from students where id like "+"\'"+"%"+text+"%"+"\'";
+						System.out.println(sIdSearch);
+						try {
+							test.stmt = test.con.createStatement();
+							ResultSet rs = test.stmt.executeQuery(sIdSearch);
+							while(rs.next()) {
+									Vector v = new Vector();
+									v.add(Long.toString(rs.getLong("id")));
+									v.add(rs.getString("name"));
+									v.add(rs.getString("address"));
+									rowData.add(v);	
+							}
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+//						for(int i = 0;i<Test_Student.stu.size();i++) {
+//							if(Test_Student.stu.get(i).id == Long.parseLong(text)) {
+//							Vector v = new Vector();
+//							Vector v1 = new Vector();
+//							System.out.println(Long.toString(Test_Student.stu.get(i).id));
+//							v.add(Long.toString(Test_Student.stu.get(i).id));
+//								v.add(Test_Student.stu.get(i).name);
+//								v.add(Test_Student.stu.get(i).address);
+//								rowData.add(v);	
+//								
+//							}																																						
+//						}
+					}
+				});		
+			}
+			
+			});
+		mnNewMenu.add(mntmNewMenuItem);
+		
+		JMenuItem mntmNewMenuItem_1 = new JMenuItem("\u6839\u636E\u59D3\u540D\u67E5\u8BE2");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				NameSearch nameSearch = new NameSearch();
+				nameSearch.btnNewButton.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						if (nameSearch.textField.getText().trim().equals("")){//判定文本框输入是否为空 
+							JOptionPane.showMessageDialog(null, "您的输入为空");
+							return;
+						}
+						String text =  nameSearch.textField.getText();
+						String s[] =  {"id", "name", "address"};
+						Vector rowData,columnNames;
+						columnNames = new Vector();
+						rowData =new Vector();
+						columnNames.add("id");columnNames.add("name");columnNames.add("address");
+						nameSearch.table_3 = new JTable(rowData,columnNames) {
+							public boolean isCellEditable(int rowIndex, int ColIndex){
+							     return false;
+								}
+						};
+						nameSearch.scrollPane = new JScrollPane(nameSearch.table_3);
+						nameSearch.scrollPane.setBounds(0, 85, 436, 166);
+						nameSearch.table_3.setVisible(true);
+						nameSearch.contentPane.add(nameSearch.scrollPane);
+						String sNameSearch ="Select id,name,address from students where name like "+"\'"+"%"+text+"%"+"\'";
+						System.out.println(sNameSearch);
+						int flag=0;
+						try {
+							test.stmt = test.con.createStatement();
+							ResultSet rs = test.stmt.executeQuery(sNameSearch);
+							while(rs.next()) {
+									Vector v = new Vector();
+									v.add(Long.toString(rs.getLong("id")));
+									v.add(rs.getString("name"));
+									v.add(rs.getString("address"));
+									rowData.add(v);
+									flag=1;	
+							}
+							if(flag==0) {
+								JOptionPane.showMessageDialog(null, "您的输入为空");
+								return;
+							}
+						} catch (SQLException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+//						for(int i = 0;i<Test_Student.stu.size();i++) {
+//							if(Test_Student.stu.get(i).name.equals(text)) {
+//							
+//							System.out.println(Test_Student.stu.get(i).name);
+//							v.add(Long.toString(Test_Student.stu.get(i).id));
+//								v.add(Test_Student.stu.get(i).name);
+//								v.add(Test_Student.stu.get(i).address);
+//								rowData.add(v);																	
+//							}																																						
+//						}
+					}
+				});		
+			}
+			
+			});
+		
+		
+		
+		
+		
+		mnNewMenu.add(mntmNewMenuItem_1);
+		
+		JMenu mnNewMenu_1 = new JMenu("\u6DFB\u52A0");
+		menuBar.add(mnNewMenu_1);
+		
+		JMenu mnNewMenu_2 = new JMenu("\u5220\u9664");
+		menuBar.add(mnNewMenu_2);
+		
+		JMenu mnNewMenu_3 = new JMenu("\u4FEE\u6539");
+		menuBar.add(mnNewMenu_3);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+	}
+}
+//class Test_Student {
+//	public static ArrayList<Student> stu =new ArrayList<Student>();
+//    String driver="org.hsqldb.jdbcDriver";
+//    String url="jdbc:hsqldb:hsql://localhost";
+//    String user ="sa";
+//    String pass ="";
+//    Connection con=null;
+//    Statement stmt;
+//    public void init()throws Exception{
+//        if (con!=null)return;
+//        Class.forName(driver);
+//        con = DriverManager.getConnection(url,user,pass);
+//    }
+//    public void close() throws Exception {
+//        if(con!=null)
+//            con.close();
+//    }
+//    public void initTable()throws SQLException{
+//        String sql="create table students(id bigint,name varchar(30),address varchar (30))";
+//        stmt =con.createStatement();
+//        stmt.executeUpdate(sql);
+//        stmt.close();
+//    }
+//    public Test_Student() throws Exception {
+//    	init();
+//    	stmt= con.createStatement();
+//    	ResultSet rs = stmt.executeQuery("Select * from students");
+//    	while(rs.next()) {
+//    		long id = rs.getLong("id");
+//        	String name = rs.getString("name");
+//        	String address =rs.getString("address");
+//        	Student student = new Student(id,name,address);
+//        	System.out.println(id+" "+name+" "+address); 
+//        	stu.add(student);
+//    	}
+//    }   
+//}

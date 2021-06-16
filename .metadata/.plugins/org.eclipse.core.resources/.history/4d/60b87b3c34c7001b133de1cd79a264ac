@@ -1,0 +1,94 @@
+package test1;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class AddStudent extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					AddStudent frame = new AddStudent();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public AddStudent() {
+		setTitle("\u5B66\u751F\u7C4D\u8D2F\u4FE1\u606F\u8BB0\u5F55\u7C3F");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("\u6DFB\u52A0");
+		menuBar.add(mnNewMenu);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("\u5B66\u53F7:");
+		lblNewLabel.setBounds(41, 56, 105, 34);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("\u8BF7\u8F93\u5165\u8981\u6DFB\u52A0\u5B66\u751F\u7684\u4FE1\u606F");
+		lblNewLabel_1.setBounds(126, 10, 164, 34);
+		contentPane.add(lblNewLabel_1);
+		
+		textField = new JTextField();
+		textField.setBounds(99, 60, 164, 27);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(99, 118, 164, 27);
+		contentPane.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(99, 180, 164, 27);
+		contentPane.add(textField_2);
+		
+		JLabel lblNewLabel_2 = new JLabel("\u59D3\u540D:");
+		lblNewLabel_2.setBounds(41, 114, 105, 34);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("\u7C4D\u8D2F:");
+		lblNewLabel_3.setBounds(41, 176, 105, 34);
+		contentPane.add(lblNewLabel_3);
+		
+		JButton btnNewButton = new JButton("\u786E\u5B9A");
+		
+		btnNewButton.setBounds(273, 118, 153, 89);
+		contentPane.add(btnNewButton);
+	}
+}

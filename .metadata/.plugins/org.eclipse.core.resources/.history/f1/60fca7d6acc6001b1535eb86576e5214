@@ -1,0 +1,92 @@
+package test1;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JMenuBar;
+import javax.swing.JMenu;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JTable;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+
+import java.awt.ScrollPane;
+import javax.swing.table.DefaultTableModel;
+
+class IdSearch extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTable table_3;
+
+	/**
+	 * Launch the application.
+	 */
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public IdSearch() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnNewMenu = new JMenu("\u67E5\u8BE2");
+		menuBar.add(mnNewMenu);
+		
+		JMenu mnNewMenu_1 = new JMenu("\u6DFB\u52A0");
+		menuBar.add(mnNewMenu_1);
+		
+		JMenu mnNewMenu_2 = new JMenu("\u5220\u9664");
+		menuBar.add(mnNewMenu_2);
+		
+		JMenu mnNewMenu_3 = new JMenu("\u4FEE\u6539");
+		menuBar.add(mnNewMenu_3);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("\u5B66\u53F7:");
+		lblNewLabel.setBounds(31, 24, 44, 34);
+		contentPane.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(85, 24, 225, 34);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		
+		
+		table_3 = new JTable();
+		table_3.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"id", "name", "address"
+			}
+		));
+		
+		
+		
+		JScrollPane scrollPane = new JScrollPane(table_3);
+		scrollPane.setBounds(0, 85, 436, 166);
+		contentPane.add(scrollPane);
+		IdSearch frame = new IdSearch();
+		frame.setVisible(true);
+//		scrollPane.setColumnHeaderView();
+		
+
+		
+		
+		
+
+	}
+}

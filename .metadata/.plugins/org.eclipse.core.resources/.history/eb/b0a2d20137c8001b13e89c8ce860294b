@@ -1,0 +1,89 @@
+package test1;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+
+public class Registered extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Registered frame = new Registered();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Registered() {
+		setTitle("\u5B66\u751F\u7C4D\u8D2F\u4FE1\u606F\u8BB0\u5F55\u7C3F");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("tel:");
+		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 16));
+		lblNewLabel.setBounds(57, 40, 109, 39);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblUsername = new JLabel("userName");
+		lblUsername.setFont(new Font("宋体", Font.PLAIN, 16));
+		lblUsername.setBounds(57, 89, 109, 39);
+		contentPane.add(lblUsername);
+		
+		JLabel lblPassword = new JLabel("password");
+		lblPassword.setFont(new Font("宋体", Font.PLAIN, 16));
+		lblPassword.setBounds(57, 149, 109, 39);
+		contentPane.add(lblPassword);
+		
+		JLabel lblConfirm = new JLabel("Confirm");
+		lblConfirm.setFont(new Font("宋体", Font.PLAIN, 16));
+		lblConfirm.setBounds(57, 203, 109, 39);
+		contentPane.add(lblConfirm);
+		
+		textField = new JTextField();
+		textField.setBounds(176, 41, 180, 39);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(176, 90, 180, 39);
+		contentPane.add(textField_1);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		textField_2.setBounds(176, 150, 180, 39);
+		contentPane.add(textField_2);
+		
+		textField_3 = new JTextField();
+		textField_3.setColumns(10);
+		textField_3.setBounds(176, 204, 180, 39);
+		contentPane.add(textField_3);
+	}
+}

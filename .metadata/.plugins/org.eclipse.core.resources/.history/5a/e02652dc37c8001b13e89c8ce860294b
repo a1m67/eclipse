@@ -1,0 +1,92 @@
+package test1;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+
+public class Registered extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Registered frame = new Registered();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 * @throws Exception 
+	 */
+	public Registered() throws Exception {
+		
+		Login_sql  register = new Login_sql();
+		register.init();
+		setTitle("\u5B66\u751F\u7C4D\u8D2F\u4FE1\u606F\u8BB0\u5F55\u7C3F");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("tel:");
+		lblNewLabel.setFont(new Font("宋体", Font.PLAIN, 16));
+		lblNewLabel.setBounds(57, 29, 109, 39);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblUsername = new JLabel("userName:");
+		lblUsername.setFont(new Font("宋体", Font.PLAIN, 16));
+		lblUsername.setBounds(57, 89, 109, 39);
+		contentPane.add(lblUsername);
+		
+		JLabel lblPassword = new JLabel("password:");
+		lblPassword.setFont(new Font("宋体", Font.PLAIN, 16));
+		lblPassword.setBounds(57, 149, 109, 39);
+		contentPane.add(lblPassword);
+		
+		JLabel lblConfirm = new JLabel("confirm:");
+		lblConfirm.setFont(new Font("宋体", Font.PLAIN, 16));
+		lblConfirm.setBounds(57, 203, 109, 39);
+		contentPane.add(lblConfirm);
+		
+		textField = new JTextField();
+		textField.setBounds(176, 30, 180, 39);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(176, 90, 180, 39);
+		contentPane.add(textField_1);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(176, 143, 180, 45);
+		contentPane.add(passwordField);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(176, 203, 180, 45);
+		contentPane.add(passwordField_1);
+	}
+}

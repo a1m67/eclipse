@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="hsqldb-2.6.0/hsqldb/doc/verbatim/src"/>
+	<classpathentry kind="src" path="hsqldb-2.6.0/hsqldb/integration/extAuthWithSpring/src"/>
+	<classpathentry excluding="modules/org.hsqldb/|modules/org.hsqldb.min/|modules/org.hsqldb.sqltool/" kind="src" path="hsqldb-2.6.0/hsqldb/src"/>
+	<classpathentry kind="src" path="hsqldb-2.6.0/hsqldb/src/modules/org.hsqldb"/>
+	<classpathentry kind="src" path="hsqldb-2.6.0/hsqldb/src/modules/org.hsqldb.min"/>
+	<classpathentry kind="src" path="hsqldb-2.6.0/hsqldb/src/modules/org.hsqldb.sqltool"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="hsqldb-2.6.0/hsqldb/build/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="hsqldb-2.6.0/hsqldb/lib/hsqldb-jdk8.jar"/>
+	<classpathentry kind="lib" path="hsqldb-2.6.0/hsqldb/lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="hsqldb-2.6.0/hsqldb/lib/sqltool.jar"/>
+	<classpathentry kind="output" path="out/production/Java_Practicum"/>
+</classpath>

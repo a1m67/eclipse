@@ -1,0 +1,25 @@
+import javax.swing.*;
+
+public class jComboBox {
+    public static void main(String args[]){
+        JFrame jf =new JFrame("学生籍贯信息记录簿");
+        JPanel jp1 =new JPanel();
+
+        JLabel jl1 = new JLabel("查询");
+        JLabel jl2 = new JLabel("根据学号查询");
+        JLabel jl3 = new JLabel("根据姓名查询");
+
+
+
+        JComboBox cmb1 =new JComboBox();
+        cmb1.addItem("---查询---");
+        cmb1.addItem("学号");
+        cmb1.addItem("姓名");
+
+        jp1.add(cmb1);
+        jf.add(jp1);
+        jf.setBounds(300,200,400,100);
+        jf.setVisible(true);
+        jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+}
